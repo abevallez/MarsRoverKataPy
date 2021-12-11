@@ -7,6 +7,3 @@ class Position:
         self._x = x
         self._y = y
         self._direction = starting_direction
-
-    def direction(self):
-        return self._direction
