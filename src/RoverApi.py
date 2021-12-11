@@ -1,12 +1,18 @@
 from typing import List
 
-position: List[int] = [0, 0]
+STARTING_COORDINATES: List[int] = [0, 0]
+STARTING_DIRECTION = 'N'
+coordinates: List[int] = [0, 0]
 
 
-def start(x: int = 0, y: int = 0):
-    global position
-    position = [x, y]
+def start(x: int = STARTING_COORDINATES[0], y: int = STARTING_COORDINATES[1]):
+    global coordinates
+    coordinates = [x, y]
 
 
 def current_position():
-    return position
+    return coordinates
+
+
+def current_direction():
+    return STARTING_DIRECTION
