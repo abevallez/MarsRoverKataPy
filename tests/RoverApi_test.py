@@ -28,3 +28,4 @@ def test_rover_start_at_direction_given_as_starting_direction(direction):
     rover_api = RoverApi
     rover_api.start(0, 0, direction)
     assert rover_api.current_direction() == direction
+
