@@ -30,8 +30,10 @@ def test_create_rover_at_direction_given_as_starting_direction(direction):
     assert rover_api.current_direction() == direction
 
 
-def test_rover_move_forward():
+@pytest.mark.parametrize("origin_coordinates, final_coordinates",
+                         [([0, 0], [1, 0]), ([1, 2], [2, 2]), ([4, 1], [5, 1])])
+def test_rover_move_forward(origin_coordinates, final_coordinates):
     rover_api = RoverApi
-    rover_api.start(0, 0, 'N')
+    rover_api.start(origin_coordinates[0], origin_coordinates[1], 'N')
     rover_api.execute_command(['F'])
-    assert rover_api.current_coordinates() == [1, 0]
+    assert rover_api.current_coordinates() == final_coordinates

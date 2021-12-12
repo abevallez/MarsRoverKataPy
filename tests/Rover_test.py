@@ -9,14 +9,6 @@ def test_rover_set_position_when_create_it():
     assert rover.position is position
 
 
-def test_rover_move_forward():
-    position: Position = Position(0, 0, 'N')
-    rover: Rover = Rover(position)
-
-    rover.move_forward()
-    assert rover.position.coordinates == [1, 0]
-
-
 @pytest.mark.parametrize("x,y", [(0, 0), (1, 5), (1, 1), (5, 3), (6, 3)])
 def test_current_coordinate_get_coordinate_from_position(x, y):
     position: Position = Position(x, y, 'N')
