@@ -26,6 +26,4 @@ def execute_command(commands: list):
             rover.move_forward()
         elif command == 'B':
             rover.move_back()
-        elif command == 'R':
-            rover.move_right()
 
