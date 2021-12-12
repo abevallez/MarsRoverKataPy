@@ -21,6 +21,12 @@ class Rover:
                                 self._position.direction)
         self._position = new_position
 
+    def turn_right(self):
+        new_position = Position(self._position.coordinates[0],
+                                self._position.coordinates[1],
+                                'E')
+        self._position = new_position
+
     def current_direction(self) -> str:
         return self._position.direction
 
