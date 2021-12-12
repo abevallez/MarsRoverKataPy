@@ -37,3 +37,11 @@ def test_rover_move_forward(origin_coordinates, final_coordinates):
     rover_api.start(origin_coordinates[0], origin_coordinates[1], 'N')
     rover_api.execute_command(['F'])
     assert rover_api.current_coordinates() == final_coordinates
+
+@pytest.mark.parametrize("origin_coordinates, final_coordinates",
+                         [([2, 0], [1, 0]), ([3, 2], [2, 2]), ([4, 1], [3, 1])])
+def test_rover_move_back(origin_coordinates, final_coordinates):
+    rover_api = RoverApi
+    rover_api.start(origin_coordinates[0], origin_coordinates[1], 'N')
+    rover_api.execute_command(['B'])
+    assert rover_api.current_coordinates() == final_coordinates

@@ -9,10 +9,14 @@ class Rover:
     def position(self) -> Position:
         return self._position
 
-    def move_forward(self) -> Position:
+    def move_forward(self):
         new_position = Position(self._position.coordinates[0]+1, self._position.coordinates[1], self._position.direction)
         self._position = new_position
-        return self._position
+
+    def move_back(self):
+        new_position = Position(self._position.coordinates[0] - 1, self._position.coordinates[1],
+                                self._position.direction)
+        self._position = new_position
 
     def current_coordinates(self) -> list:
         return self._position.coordinates
