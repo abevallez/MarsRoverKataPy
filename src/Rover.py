@@ -36,9 +36,17 @@ class Rover:
         self._position = new_position
 
     def turn_left(self):
+        if self._position.direction == 'N':
+            new_direction = 'W'
+        elif self._position.direction == 'W':
+            new_direction = 'S'
+        elif self._position.direction == 'S':
+            new_direction = 'E'
+        elif self._position.direction == 'E':
+            new_direction = 'N'
         new_position = Position(self._position.coordinates[0],
                                 self._position.coordinates[1],
-                                'W')
+                                new_direction)
         self._position = new_position
 
     def current_direction(self) -> str:

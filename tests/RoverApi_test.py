@@ -66,8 +66,10 @@ def test_rover_turn_direction_to_right(origin_direction, final_direction):
     assert rover_api.current_direction() == final_direction
 
 
-def test_rover_turn_direction_to_west_when_rover_facing_north_and_command_left():
+@pytest.mark.parametrize("origin_direction, final_direction",
+                         [('N', 'W'), ('W', 'S'), ('S', 'E'), ('E', 'N')])
+def test_rover_turn_direction_to_left(origin_direction, final_direction):
     rover_api = RoverApi
-    rover_api.start(0, 0, 'N')
+    rover_api.start(0, 0, origin_direction)
     rover_api.execute_command(['L'])
-    assert rover_api.current_direction() == 'W'
+    assert rover_api.current_direction() == final_direction
