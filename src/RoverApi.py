@@ -12,9 +12,13 @@ def start(x: int = STARTING_COORDINATES[0], y: int = STARTING_COORDINATES[1], st
     rover = Rover(position)
 
 
-def current_position() -> list:
-    return rover.position.coordinates
+def current_coordinates() -> list:
+    return rover.current_coordinates()
 
 
 def current_direction() -> str:
-    return rover.position.direction
+    return rover.current_direction()
+
+
+def execute_command(commands: list):
+    rover.move_forward()
