@@ -50,5 +50,5 @@ def test_rover_move_back(origin_coordinates, final_coordinates):
 def test_rover_move_with_two_commands():
     rover_api = RoverApi
     rover_api.start(0, 0, 'N')
-    rover_api.execute_command(['FB'])
+    rover_api.execute_command(['F', 'B'])
     assert rover_api.current_coordinates() == [0, 0]

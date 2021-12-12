@@ -21,7 +21,8 @@ def current_direction() -> str:
 
 
 def execute_command(commands: list):
-    if commands == ['F']:
-        rover.move_forward()
-    else:
-        rover.move_back()
+    for command in commands:
+        if command == 'F':
+            rover.move_forward()
+        else:
+            rover.move_back()
