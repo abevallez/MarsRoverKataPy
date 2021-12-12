@@ -45,3 +45,10 @@ def test_rover_move_back(origin_coordinates, final_coordinates):
     rover_api.start(origin_coordinates[0], origin_coordinates[1], 'N')
     rover_api.execute_command(['B'])
     assert rover_api.current_coordinates() == final_coordinates
+
+
+def test_rover_move_with_two_commands():
+    rover_api = RoverApi
+    rover_api.start(0, 0, 'N')
+    rover_api.execute_command(['FB'])
+    assert rover_api.current_coordinates() == [0, 0]
