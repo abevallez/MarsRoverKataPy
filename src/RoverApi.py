@@ -28,4 +28,6 @@ def execute_command(commands: list):
             rover.move_back()
         elif command == 'R':
             rover.turn_right()
+        elif command == 'L':
+            rover.turn_left()
 
