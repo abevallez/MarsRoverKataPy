@@ -57,11 +57,13 @@ def test_rover_move_with_more_than_1_command_back_or_forward(commands, final_coo
     assert rover_api.current_coordinates() == final_coordinates
 
 
-def test_rover_turn_direction_to_east_when_rover_facing_north_and_command_right():
+@pytest.mark.parametrize("origin_direction, final_direction",
+                         [('N', 'E'), ('E', 'S'), ('S', 'W'), ('W', 'N')])
+def test_rover_turn_direction_to_right(origin_direction, final_direction):
     rover_api = RoverApi
-    rover_api.start(0, 0, 'N')
+    rover_api.start(0, 0, origin_direction)
     rover_api.execute_command(['R'])
-    assert rover_api.current_direction() == 'E'
+    assert rover_api.current_direction() == final_direction
 
 
 def test_rover_turn_direction_to_west_when_rover_facing_north_and_command_left():
