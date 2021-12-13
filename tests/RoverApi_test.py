@@ -82,3 +82,13 @@ def test_rover_move_forward_when_no_facing_north(direction, final_coordinates):
     rover_api.start(2, 2, direction)
     rover_api.execute_command(list('FF'))
     assert rover_api.current_coordinates() == final_coordinates
+
+
+@pytest.mark.parametrize("direction, final_coordinates",
+                         [('E', [2, 0]), ('W', [2, 4]), ('S', [4, 2])])
+def test_rover_move_forward_when_no_facing_north(direction, final_coordinates):
+    rover_api = RoverApi
+    rover_api.start(2, 2, direction)
+    rover_api.execute_command(list('BB'))
+    assert rover_api.current_coordinates() == final_coordinates
+
