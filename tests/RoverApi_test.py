@@ -50,7 +50,7 @@ def test_rover_move_back(origin_coordinates, final_coordinates):
 
 @pytest.mark.parametrize("commands, final_coordinates",
                          [(['F', 'B'], [0, 0]), (['F', 'F'], [2, 0]), (['F', 'F', 'B'], [1, 0])])
-def test_rover_move_with_more_than_1_command_back_or_forward(commands, final_coordinates):
+def test_rover_move_with_more_than_1_command_same_direction(commands, final_coordinates):
     rover_api = RoverApi
     rover_api.start(0, 0, 'N')
     rover_api.execute_command(commands)
@@ -73,3 +73,10 @@ def test_rover_turn_direction_to_left(origin_direction, final_direction):
     rover_api.start(0, 0, origin_direction)
     rover_api.execute_command(['L'])
     assert rover_api.current_direction() == final_direction
+
+
+def test_rover_move_forward_when_turn_direction():
+    rover_api = RoverApi
+    rover_api.start(0, 0, 'N')
+    rover_api.execute_command(list('RFF'))
+    assert rover_api.current_coordinates() == [0, 2]

@@ -10,9 +10,14 @@ class Rover:
         return self._position
 
     def move_forward(self):
-        new_position = Position(self._position.coordinates[0] + 1,
-                                self._position.coordinates[1],
-                                self._position.direction)
+        if self._position.direction == 'N':
+            new_position = Position(self._position.coordinates[0] + 1,
+                                    self._position.coordinates[1],
+                                    self._position.direction)
+        elif self._position.direction == 'E':
+            new_position = Position(self._position.coordinates[0],
+                                    self._position.coordinates[1] + 1,
+                                    self._position.direction)
         self._position = new_position
 
     def move_back(self):
