@@ -18,6 +18,10 @@ class Rover:
             new_position = Position(self._position.coordinates[0],
                                     self._position.coordinates[1] + 1,
                                     self._position.direction)
+        elif self._position.direction == 'S':
+            new_position = Position(self._position.coordinates[0] - 1,
+                                    self._position.coordinates[1],
+                                    self._position.direction)
         self._position = new_position
 
     def move_back(self):

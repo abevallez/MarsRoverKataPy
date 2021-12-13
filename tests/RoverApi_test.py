@@ -75,8 +75,15 @@ def test_rover_turn_direction_to_left(origin_direction, final_direction):
     assert rover_api.current_direction() == final_direction
 
 
-def test_rover_move_forward_when_turn_direction():
+def test_rover_move_forward_when_facing_east():
     rover_api = RoverApi
     rover_api.start(0, 0, 'N')
     rover_api.execute_command(list('RFF'))
     assert rover_api.current_coordinates() == [0, 2]
+
+
+def test_rover_move_forward_when_facing_south():
+    rover_api = RoverApi
+    rover_api.start(0, 0, 'N')
+    rover_api.execute_command(list('FFRRFF'))
+    assert rover_api.current_coordinates() == [0, 0]
