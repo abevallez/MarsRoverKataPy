@@ -105,3 +105,17 @@ def test_rover_move_to_x5_when_move_back_toward_x_edge():
     rover_api.start(0, 0, 'N')
     rover_api.execute_command(list('B'))
     assert rover_api.current_coordinates() == [5, 0]
+
+
+def test_rover_move_to_y0_when_move_toward_y_edge():
+    rover_api = RoverApi
+    rover_api.start(0, 5, 'E')
+    rover_api.execute_command(list('F'))
+    assert rover_api.current_coordinates() == [0, 0]
+
+
+def test_rover_move_to_y5_when_move_back_toward_y_edge():
+    rover_api = RoverApi
+    rover_api.start(0, 0, 'E')
+    rover_api.execute_command(list('B'))
+    assert rover_api.current_coordinates() == [0, 5]
