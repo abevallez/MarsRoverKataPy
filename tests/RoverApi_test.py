@@ -92,3 +92,9 @@ def test_rover_move_forward_when_no_facing_north(direction, final_coordinates):
     rover_api.execute_command(list('BB'))
     assert rover_api.current_coordinates() == final_coordinates
 
+
+def test_rover_move_to_x0_when_move_toward_x_edge():
+    rover_api = RoverApi
+    rover_api.start(5, 0, 'N')
+    rover_api.execute_command(list('F'))
+    assert rover_api.current_coordinates() == [0, 0]

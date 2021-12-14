@@ -85,8 +85,11 @@ class Rover:
         return new_position
 
     def _move_forward_x(self):
-        new_position = Position(self._position.coordinates[0] + 1,
-                                self._position.coordinates[1],
-                                self._position.direction)
+        if self._position.coordinates[0] == 5:
+            new_x = 0
+        else:
+            new_x = self._position.coordinates[0] + 1
+
+        new_position = Position(new_x, self._position.coordinates[1], self._position.direction)
         return new_position
 
