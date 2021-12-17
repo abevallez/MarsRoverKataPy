@@ -47,4 +47,40 @@ class Position:
                                 self.world)
         return new_position
 
+    def move_forward_y(self):
+        if self.is_end_y_edge():
+            new_y = 0
+        else:
+            new_y = self.coordinates[1] + 1
+
+        new_position = Position(self.coordinates[0],
+                                new_y,
+                                self.direction,
+                                self.world)
+        return new_position
+
+    def move_back_x(self):
+        if self.is_start_x_edge():
+            new_x = 5
+        else:
+            new_x = self.coordinates[0] - 1
+
+        new_position = Position(new_x,
+                                self.coordinates[1],
+                                self.direction,
+                                self.world)
+        return new_position
+
+    def move_back_y(self):
+        if self.is_start_y_edge():
+            new_y = 5
+        else:
+            new_y = self.coordinates[1] - 1
+
+        new_position = Position(self.coordinates[0],
+                                new_y,
+                                self.direction,
+                                self.world)
+        return new_position
+
 
