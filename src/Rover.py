@@ -17,14 +17,13 @@ class Rover:
 
     def move_forward(self):
         if self._position.direction == 'N':
-            new_position = self._move_forward_x()
+            self._position = self._position.move_forward_x()
         elif self._position.direction == 'E':
-            new_position = self._move_forward_y()
+            self._position = self._move_forward_y()
         elif self._position.direction == 'S':
-            new_position = self._move_back_x()
+            self._position = self._move_back_x()
         elif self._position.direction == 'W':
-            new_position = self._move_back_y()
-        self._position = new_position
+            self._position = self._move_back_y()
 
     def move_back(self):
         if self._position.direction == 'N':
