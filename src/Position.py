@@ -24,4 +24,10 @@ class Position:
         return self._coordinates[0] == 0
 
     def is_end_x_edge(self) -> bool:
-        return self._coordinates[0] == self._world.size_x - 1
+        return self._coordinates[0] == self._world.size_y - 1
+
+    def is_start_y_edge(self) -> bool:
+        return self._coordinates[1] == 0
+
+    def is_end_y_edge(self) -> bool:
+        return self._coordinates[1] == self._world.size_y - 1
