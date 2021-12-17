@@ -35,3 +35,16 @@ class Position:
     def is_facing(self, direction: str) -> bool:
         return self._direction == direction
 
+    def move_forward_x(self):
+        if self.is_end_x_edge():
+            new_x = 0
+        else:
+            new_x = self.coordinates[0] + 1
+
+        new_position = Position(new_x,
+                                self.coordinates[1],
+                                self.direction,
+                                self.world)
+        return new_position
+
+
