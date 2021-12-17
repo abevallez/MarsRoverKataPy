@@ -31,3 +31,7 @@ class Position:
 
     def is_end_y_edge(self) -> bool:
         return self._coordinates[1] == self._world.size_y - 1
+
+    def is_facing(self, direction: str) -> bool:
+        return self._direction == direction
+
