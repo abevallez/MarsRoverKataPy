@@ -1,14 +1,18 @@
 from src.Position import Position
 from src.Rover import Rover
+from src.World import World
 
 STARTING_COORDINATES: list = [0, 0]
 STARTING_DIRECTION: str = 'N'
 rover: Rover
 
 
-def start(x: int = STARTING_COORDINATES[0], y: int = STARTING_COORDINATES[1], starting_direction: str = STARTING_DIRECTION):
+def start(x: int = STARTING_COORDINATES[0],
+          y: int = STARTING_COORDINATES[1],
+          starting_direction: str = STARTING_DIRECTION,
+          world: World = World()):
     global rover
-    position = Position(x, y, starting_direction)
+    position = Position(x, y, starting_direction, world)
     rover = Rover(position)
 
 
