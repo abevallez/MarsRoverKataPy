@@ -74,7 +74,7 @@ class Rover:
         return self._position.coordinates
 
     def _move_back_x(self) -> Position:
-        if self._position.coordinates[0] == 0:
+        if self._position.is_start_x_edge():
             new_x = 5
         else:
             new_x = self._position.coordinates[0] - 1
@@ -86,7 +86,7 @@ class Rover:
         return new_position
 
     def _move_back_y(self) -> Position:
-        if self._position.coordinates[1] == 0:
+        if self._position.is_start_y_edge():
             new_y = 5
         else:
             new_y = self._position.coordinates[1] - 1
@@ -98,7 +98,7 @@ class Rover:
         return new_position
 
     def _move_forward_y(self) -> Position:
-        if self._position.coordinates[1] == 5:
+        if self._position.is_end_y_edge():
             new_y = 0
         else:
             new_y = self._position.coordinates[1] + 1
@@ -110,7 +110,7 @@ class Rover:
         return new_position
 
     def _move_forward_x(self) -> Position:
-        if self._position.coordinates[0] == 5:
+        if self._position.is_end_x_edge():
             new_x = 0
         else:
             new_x = self._position.coordinates[0] + 1
